@@ -1,0 +1,81 @@
+groupa=[]
+groupb=[]
+groupc=[]
+def cricket():
+    a=int(input("enter no. of students playing cricket:"))
+    for i in range(a):
+        b=int(input("enter roll.no of students playing cricket:"))
+        groupa.append(b)
+    print("roll.no. of students playing cricket are:",groupa)
+def badminton():
+    a1=int(input("enter no. of students playing badminton:"))
+    for i in range(a1):
+        b1=int(input("enter roll.no of students playing badminton:"))
+        groupb.append(b1)
+    print("roll.no. of students playing badminton are:",groupb)
+def football():
+    a2=int(input("enter no. of students playing football:"))
+    for i in range(a2):
+        b2=int(input("enter roll.no of students playing football :"))
+        groupc.append(b2)
+    print("roll.no. of students playing football are:",groupc)
+def first_condition():
+    K=[]
+    for i in groupa:
+        if i in groupb:
+            K.append(i)
+    print("roll.no. of students who play both cricket and badminton are:",K)
+def second_condition():
+    D=groupa+groupb
+    for i in groupa:
+        if i in groupb:
+            D.remove(i)
+    for j in groupb:
+        if j in groupa:
+            D.remove(j)
+    print("roll.no of students who either play cricket or badminton are:",D)
+def thrid_condition():
+    u=[]
+    for i in groupc:
+        u.append(i)
+    for i in groupa:
+        if i in u:
+            u.remove(i)
+    for j in groupb:
+        if j in u:
+            u.remove(j)
+    w=len(u)
+    print("no. of students who play neither cricket nor badminton are:",w)
+def fourth_condition():
+    f=[]
+    for i in groupa:
+        if i in groupc:
+            f.append(i)
+    for j in groupb:
+        if j in f:
+            f.remove(j)
+    w1=len(f)
+    print("no of students who play cricket and football but not badminton are:",w1)
+cricket()
+badminton()
+football()
+while True:
+    s=int(input('''ENTER YOUR CHOICE:
+    PRESS 1: LIST OF STUDENTS WHO PLAY  BOTH CRICKET AND BADMINTON
+    PRESS 2: LIST OF STUDENTS WHO PLAY EITHER CRICKET OR BADMINTON BUT NOT BOTH
+    PRESS 3: NO. OF STUDENTS WHO PLAY NEITHER CRICKET NOR BADMINTON
+    PRESS 4: NO. OF STUDENTS WHO PLAY CRICKET AND FOOTBALL BUT NOT BADMINTON\n'''))
+    if s==1:
+        first_condition()
+    if s==2:
+        second_condition()
+    if s==3:
+        thrid_condition()
+    if s==4:
+        fourth_condition()
+    j=int(input(('''DO YOU WANT TO ENTER DIFFERENT CHOICE:
+          IF YES: ENTER 1
+          IF NO : ENTER 0::''')))
+    if j!=1:
+        break
+
